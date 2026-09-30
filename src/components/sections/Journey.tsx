@@ -17,7 +17,7 @@ const BEATS: [number, number][] = [
 /** The delivery film: laboratory -> Pluto -> clinic, scrubbed by scroll. Plays full-frame from its first pixel. */
 export function Journey({ t }: { t: Copy }) {
   return (
-    <ScrollSequence id="journey" seq={SEQ_JOURNEY} label={t.journey.aria} poster="/posters/hero.jpg" tail={TAIL}>
+    <ScrollSequence id="journey" seq={SEQ_JOURNEY} label={t.journey.aria} poster="/posters/hero.jpg" tail={TAIL} rewindLabel={t.film.rewind}>
       {(p) => <Layers p={p} t={t} />}
     </ScrollSequence>
   );

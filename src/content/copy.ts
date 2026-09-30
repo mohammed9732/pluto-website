@@ -46,6 +46,7 @@ const en = {
       "Pluto imports and distributes aesthetic and medical devices from the world's most respected manufacturers to Iraq's leading clinics — with nothing lost along the way.",
     scroll: 'Scroll to explore',
   },
+  film: { rewind: 'Rewinding' },
   journey: {
     label: 'The journey',
     title: 'From the source to your hands.',
@@ -157,6 +158,7 @@ const ar: typeof en = {
     intro: 'تستورد بلوتو الأجهزة التجميلية والطبية وتوزّعها من أرقى المصنّعين في العالم إلى أبرز العيادات في العراق — دون أن يضيع شيء في الطريق.',
     scroll: 'مرّر للاستكشاف',
   },
+  film: { rewind: 'إرجاع' },
   journey: {
     label: 'الرحلة',
     title: 'من المصدر إلى أيديكم.',

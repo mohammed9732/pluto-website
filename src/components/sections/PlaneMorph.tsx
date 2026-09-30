@@ -12,7 +12,7 @@ import { SEQ_PRODUCT } from '@/lib/sequences';
 
 export function PlaneMorph({ t }: { t: Copy }) {
   return (
-    <ScrollSequence id="portfolio" seq={SEQ_PRODUCT} label={t.product.aria} poster="/posters/product.jpg" tail={0.05}>
+    <ScrollSequence id="portfolio" seq={SEQ_PRODUCT} label={t.product.aria} poster="/posters/product.jpg" tail={0.05} rewindLabel={t.film.rewind}>
       {(p) => <Layers p={p} t={t} />}
     </ScrollSequence>
   );

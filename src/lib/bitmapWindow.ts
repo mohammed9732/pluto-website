@@ -39,6 +39,15 @@ export class BitmapWindow {
     return best;
   }
 
+  /** Distance from `i` to the closest decoded frame (Infinity if none). */
+  distance(i: number): number {
+    let best = Infinity;
+    this.map.forEach((_, k) => {
+      best = Math.min(best, Math.abs(k - i));
+    });
+    return best;
+  }
+
   /**
    * Decode what the visitor is about to need and release what is furthest away.
    * `dir` is the scroll direction, `stride` how many frames they cover per painted frame.

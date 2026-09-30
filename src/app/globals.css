@@ -2,26 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    background: #f6f3ee;
+    color: #0c0b0a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-silk font-sans text-ink;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: #0b4a9e;
+    color: #f6f3ee;
+  }
+  /* Arabic is a joined script: letter-spacing breaks the connections between glyphs. */
+  /* Latin islands (wordmark, numbers) opt back out with dir="ltr". */
+  [dir='rtl'] *:not([dir='ltr'], [dir='ltr'] *) {
+    letter-spacing: 0 !important;
+  }
+  [dir='rtl'] body {
+    font-family: var(--font-arabic), var(--font-geist-sans), system-ui, sans-serif;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .label {
+    @apply text-[10px] font-medium uppercase tracking-label md:text-[11px];
+  }
+  .hairline {
+    @apply h-px w-full bg-ink/10;
+  }
+  /* Headlines are set in the serif. */
+  .text-display,
+  .text-title {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 400;
+  }
+  [dir='rtl'] .text-display,
+  [dir='rtl'] .text-title {
+    font-family: var(--font-arabic), system-ui, sans-serif;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  /* Silk: a warm ground with a soft highlight and a soft shadow, like light across fabric. Static, so it costs nothing to scroll. */
+  .silk {
+    background-color: #f6f3ee;
+    background-image: radial-gradient(90% 55% at 88% 0%, rgba(255, 255, 255, 0.95), transparent 62%),
+      radial-gradient(75% 50% at 0% 100%, rgba(226, 217, 203, 0.6), transparent 66%);
   }
 }

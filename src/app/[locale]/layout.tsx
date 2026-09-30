@@ -1,16 +1,35 @@
 import type { Metadata, Viewport } from 'next';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-import { Cormorant_Garamond, IBM_Plex_Sans_Arabic } from 'next/font/google';
+import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { Grain } from '@/components/chrome/Grain';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { copy, isLocale, locales } from '@/content/copy';
 import '../globals.css';
 
-const arabic = IBM_Plex_Sans_Arabic({ subsets: ['arabic'], weight: ['300', '400', '500'], variable: '--font-arabic', display: 'swap' });
+// Fonts are bundled with the site (woff2 from Google Fonts) so a build never depends on the network.
+const arabic = localFont({
+  variable: '--font-arabic',
+  display: 'swap',
+  src: [
+    { path: '../fonts/plexarabic-arabic-300.woff2', weight: '300' },
+    { path: '../fonts/plexarabic-latin-300.woff2', weight: '300' },
+    { path: '../fonts/plexarabic-arabic-400.woff2', weight: '400' },
+    { path: '../fonts/plexarabic-latin-400.woff2', weight: '400' },
+    { path: '../fonts/plexarabic-arabic-500.woff2', weight: '500' },
+    { path: '../fonts/plexarabic-latin-500.woff2', weight: '500' },
+  ],
+});
 
-const display = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-display', display: 'swap' });
+const display = localFont({
+  variable: '--font-display',
+  display: 'swap',
+  src: [
+    { path: '../fonts/cormorant-latin-400.woff2', weight: '400' },
+    { path: '../fonts/cormorant-latin-500.woff2', weight: '500' },
+  ],
+});
 
 export const viewport: Viewport = { themeColor: '#0C0B0A', viewportFit: 'cover' };
 
